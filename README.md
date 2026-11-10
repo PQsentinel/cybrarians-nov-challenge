@@ -1,57 +1,46 @@
-# Cybrarians November Challenge — Office Network
+# Cybrarians November Challenge: Office Network (VLANs)
 
-## Project Overview
-A small office network designed and configured using Cisco Packet Tracer.
+**Name:** Lawal Abdulquadri Olamide  
+**Department/Level:** Computer Science / 400 Level  
+**Date submitted:** 10 November 2026
 
-The network separates Staff and Guest devices using VLANs, provides automatic IP addressing through DHCP, and uses an ACL to restrict Guest access to Staff devices.
+## What I Built
+I built a simulated office network using Cisco Packet Tracer. It consists of 12 PCs divided into two VLANs (6 Staff PCs and 6 Guest PCs), two switches, one router, and one Staff Server.
 
-## Network Devices
-- 1 Cisco 2911 Router
-- 2 Cisco 2960 Switches
-- 6 Staff PCs
-- 6 Guest PCs
-- 1 Staff Server
+## Tasks Completed
+- [x] VLANs created and ports assigned
+- [x] Trunk between switches
+- [x] Router-on-a-stick (inter-VLAN routing)
+- [x] DHCP for both VLANs
+- [x] ACL blocking Guests from Staff and the server
+- [x] Bonus: port security
+- [x] Bonus: switch login passwords
 
-## IP Addressing
+## IP Plan
 
-| Network | VLAN | Subnet | Default Gateway |
-|---|---|---|---|
-| Staff | 10 | 192.168.10.0/24 | 192.168.10.1 |
-| Guests | 20 | 192.168.20.0/24 | 192.168.20.1 |
-| Staff Server | 10 | 192.168.10.100 | 192.168.10.1 |
+| VLAN | Network | Gateway |
+|---|---|---|
+| 10 Staff | 192.168.10.0/24 | 192.168.10.1 |
+| 20 Guests | 192.168.20.0/24 | 192.168.20.1 |
 
-## Features Implemented
-- VLAN segmentation
-- Trunk configuration between switches and router
-- Router-on-a-stick inter-VLAN routing
-- DHCP configuration
-- Static IP configuration for the server
-- Extended ACL for Guest network restrictions
-- Port security using sticky MAC addresses
-- Switch console and remote-line password configuration
+## Proof
 
-## Connectivity Tests
+### Staff pinging the server (success)
+![Staff ping success](staff-server-success.jpg)
 
-| Test | Result |
-|---|---|
-| Staff PC to Staff Server | Successful |
-| Guest PC to Staff Server | Blocked |
-| Staff PC to Guest PC | Successful |
-| Guest PC to Guest Gateway | Successful |
-| DHCP address assignment | Successful |
+### Guest pinging the server (blocked)
+![Guest ping blocked](guest-server-blocked.jpg)
 
-## Evidence
-Screenshots included in this repository:
-- `staff-server-success.jpg`
-- `guest-server-blocked.jpg`
-- `staff-dhcp.jpg`
-- `guest-dhcp.jpg`
+### Staff DHCP proof
+![Staff DHCP](staff-dhcp.jpg)
 
-## Project File
-`Cybrarians_Nov_Challenge.pkt`
+### Guest DHCP proof
+![Guest DHCP](guest-dhcp.jpg)
 
-## Tool Used
-Cisco Packet Tracer
+## Challenges I Faced
+Configuring the ACL initially affected communication between Staff and Guest PCs. I resolved this by allowing ICMP echo replies while keeping Guest access to Staff devices restricted.
 
-## Disclaimer
-This is a simulated networking and cybersecurity learning project developed for the Cybrarians November Challenge.
+I also encountered an issue with sticky MAC address learning, which I resolved by generating network traffic.
+
+## Files
+- `Lawal_AbdulQuadri_VLAN_Challenge.pkt`
