@@ -42,10 +42,10 @@ The network separates Staff and Guest devices using VLANs, provides automatic IP
 
 ## Evidence
 Screenshots included in this repository:
-- `staff-server-success.png`
-- `guest-server-blocked.png`
-- `staff-dhcp.png`
-- `guest-dhcp.png`
+- `staff-server-success.jpg`
+- `guest-server-blocked.jpg`
+- `staff-dhcp.jpg`
+- `guest-dhcp.jpg`
 
 ## Project File
 `Cybrarians_Nov_Challenge.pkt`
